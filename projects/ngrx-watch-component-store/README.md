@@ -1,24 +1,31 @@
 # NgrxWatchComponentStore
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
+```
+npm i ngrx-watch-component-store
+```
 
-## Code scaffolding
+### How to use?
 
-Run `ng generate component component-name --project ngrx-watch-component-store` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngrx-watch-component-store`.
-> Note: Don't forget to add `--project ngrx-watch-component-store` or else it will be added to the default project in your `angular.json` file. 
+Simply add `WatchComponentState` decorator on each `ComponentStore` in your app. See for yourself:
 
-## Build
+```ts
+import { Injectable } from "@angular/core";
+import { ComponentStore } from "@ngrx/component-store";
+import { WatchComponentState } from "projects/ngrx-watch-component-store/src/public-api";
 
-Run `ng build ngrx-watch-component-store` to build the project. The build artifacts will be stored in the `dist/` directory.
+@Injectable()
+@WatchComponentState()
+export class AppStore extends ComponentStore<AppState> {
+  constructor() {
+    super(initialAppState);
+  }
 
-## Publishing
+  // selectors
+  readonly count$ = this.select((state) => state.count);
 
-After building your library with `ng build ngrx-watch-component-store`, go to the dist folder `cd dist/ngrx-watch-component-store` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngrx-watch-component-store` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  // updaters
+  readonly increment = this.updater((state) => ({ count: state.count + 1 }));
+  readonly decrement = this.updater((state) => ({ count: state.count - 1 }));
+  readonly reset = this.updater(() => initialAppState);
+}
+```
