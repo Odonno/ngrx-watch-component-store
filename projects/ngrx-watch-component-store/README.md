@@ -11,7 +11,7 @@ Simply add `WatchComponentState` decorator on each `ComponentStore` in your app.
 ```ts
 import { Injectable } from "@angular/core";
 import { ComponentStore } from "@ngrx/component-store";
-import { WatchComponentState } from "projects/ngrx-watch-component-store/src/public-api";
+import { WatchComponentState } from "ngrx-watch-component-store";
 
 @Injectable()
 @WatchComponentState()
