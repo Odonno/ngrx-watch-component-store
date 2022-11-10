@@ -6,7 +6,7 @@ import { bufferCount, take, tap } from 'rxjs/operators';
  * Decorator used to log state of a @ngrx/component-store
  * Will create a watchState effect
  */
-export function WatchComponentState() {
+export default function () {
   return <T extends { new (...args: any[]): ComponentStore<any> }>(
     target: T
   ) => {
