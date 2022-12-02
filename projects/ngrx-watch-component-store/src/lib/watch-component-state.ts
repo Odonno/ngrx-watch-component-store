@@ -1,22 +1,11 @@
 import { ComponentStore } from '@ngrx/component-store';
 import { merge } from 'rxjs';
 import { bufferCount, take, tap } from 'rxjs/operators';
-
-type LogType = 'log' | 'warn' | 'error';
+import { getLogFunction } from './functions';
+import { LogType } from './models';
 
 export type WatchComponentStateOptions = {
   logType?: LogType;
-};
-
-const getLogFunction = (logType?: LogType) => {
-  switch (logType) {
-    case 'warn':
-      return console.warn;
-    case 'error':
-      return console.error;
-    default:
-      return console.info;
-  }
 };
 
 /**
