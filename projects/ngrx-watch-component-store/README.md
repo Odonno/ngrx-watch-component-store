@@ -10,7 +10,7 @@ npm i ngrx-watch-component-store
 
 The goal of this library is to display log on each ComponentStore state update. Here is what you can get in your Chrome DevTools:
 
-![./images/logs.png](./images/logs.png)
+![https://github.com/Odonno/ngrx-watch-component-store/blob/main/images/logs.png?raw=true](https://github.com/Odonno/ngrx-watch-component-store/blob/main/images/logs.png?raw=true)
 
 ### How to use?
 
