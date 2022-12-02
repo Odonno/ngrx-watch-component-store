@@ -1,7 +1,7 @@
 import { ComponentStore } from '@ngrx/component-store';
 import { merge } from 'rxjs';
 import { bufferCount, take, tap } from 'rxjs/operators';
-import { getLogFunction } from './functions';
+import { getLogFunction, getStateDiff } from './functions';
 import { LogType } from './models';
 
 export type WatchComponentStateOptions = {
@@ -48,10 +48,13 @@ export default function ({ logType }: WatchComponentStateOptions = {}) {
               ? time.getTime() - lastTime.getTime()
               : undefined;
 
+            const diff = getStateDiff(prevState, state);
+
             const obj = {
               name,
               prevState,
               state,
+              diff,
               time,
               elaspedTime,
             };
