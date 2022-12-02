@@ -1,8 +1,16 @@
 # NgrxWatchComponentStore
 
+Simplify debugging of ngrx's ComponentStore
+
 ```
 npm i ngrx-watch-component-store
 ```
+
+### Introduction
+
+The goal of this library is to display log on each ComponentStore state update. Here is what you can get in your Chrome DevTools:
+
+![./images/logs.png](./images/logs.png)
 
 ### How to use?
 
