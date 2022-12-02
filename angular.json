@@ -25,12 +25,8 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngrx-watch-component-store/src/test.ts",
-            "tsConfig": "projects/ngrx-watch-component-store/tsconfig.spec.json",
-            "karmaConfig": "projects/ngrx-watch-component-store/karma.conf.js"
-          }
+          "builder": "@angular-builders/jest:run",
+          "options": {}
         }
       }
     },
@@ -80,9 +76,7 @@
               "projects/example/src/favicon.ico",
               "projects/example/src/assets"
             ],
-            "styles": [
-              "projects/example/src/styles.css"
-            ],
+            "styles": ["projects/example/src/styles.css"],
             "scripts": []
           },
           "configurations": {

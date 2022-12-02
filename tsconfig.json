@@ -12,9 +12,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "ngrx-watch-component-store": [
-        "dist/ngrx-watch-component-store"
-      ]
+      "ngrx-watch-component-store": ["dist/ngrx-watch-component-store"]
     },
     "declaration": false,
     "downlevelIteration": true,
@@ -23,10 +21,7 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
