@@ -14,28 +14,42 @@ export default function () {
 
     return class extends target {
       watchState = this.effect(() => {
+        let lastTime: Date | undefined;
+
         const logInitialState$ = this.state$.pipe(
           take(1),
           tap((state) => {
+            const time = new Date();
+
             const obj = {
               name,
               state,
+              time,
             };
 
             console.log(obj);
+
+            lastTime = time;
           })
         );
 
         const logDiff$ = this.state$.pipe(
           bufferCount(2, 1),
           tap(([prevState, state]) => {
+            const time = new Date();
+            const elaspedTime = time.getTime() - lastTime!.getTime();
+
             const obj = {
               name,
               prevState,
               state,
+              time,
+              elaspedTime,
             };
 
             console.log(obj);
+
+            lastTime = time;
           })
         );
 
